@@ -24,10 +24,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, { username, email, password }) => {
+        try {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
+    } catch (err) {
+        console.error("Error in addUser mutation:", err);
+        throw new Error("Failed to create user");
+    }
     },
     saveBook: async (
       parent,

@@ -10,10 +10,10 @@ const PORT = process.env.PORT || 3001;
 
 async function startServer() {
   const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
+  });
 
 await server.start();
 server.applyMiddleware({ app });
