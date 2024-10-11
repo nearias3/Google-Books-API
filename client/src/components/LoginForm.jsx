@@ -93,7 +93,7 @@ const LoginForm = () => {
         >
           Submit
         </Button>
-        {error && <div>Login failed</div>}
+        {error && (<div>Login Failed: {error.message}</div>)}
       </Form>
     </>
   );

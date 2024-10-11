@@ -101,7 +101,7 @@ const SignupForm = () => {
           variant='success'>
           Submit
         </Button>
-        {error && <div>Signup Failed</div>}
+        {error && (<div>Signup Failed: {error.message}</div>)}
       </Form>
     </>
   );
